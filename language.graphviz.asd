@@ -25,7 +25,13 @@
                  :serial     t
                  :components ((:file       "package")
                               (:file       "protocol")
-                              (:file       "grammar"))))
+                              (:file       "grammar")))
+
+                (:module     "unparser"
+                 :pathname   "code/unparser"
+                 :serial     t
+                 :components ((:file       "package")
+                              (:file       "unparser"))))
 
   :in-order-to ((test-op (test-op "language.graphviz/test"))))
 
@@ -48,7 +54,14 @@
                  :depends-on ("test")
                  :serial     t
                  :components ((:file       "package")
-                              (:file       "grammar"))))
+                              (:file       "grammar")))
+
+                (:module     "unparser"
+                 :pathname   "test/unparser"
+                 :depends-on ("test")
+                 :serial     t
+                 :components ((:file       "package")
+                              (:file       "unparser"))))
 
   :perform     (test-op (operation component)
                  (uiop:symbol-call '#:language.graphviz.test '#:run-tests)))

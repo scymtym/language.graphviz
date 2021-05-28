@@ -42,4 +42,31 @@
    T
    #+END_SRC
 
+** STARTED Unparsing
+
+   The ~unparser~ module of this library provides functionality for
+   parsing the GraphViz dot language. The module is contained in the
+   ~language.graphviz.unparser~ package. Example:
+
+   #+BEGIN_SRC lisp :exports both :results output
+     (let ((ast (architecture.builder-protocol:with-builder ('list)
+                  (architecture.builder-protocol:node* (:graph :kind '(nil :digraph))
+                    (1 :statement (architecture.builder-protocol:node* (:node)
+                                    (1 :id        (architecture.builder-protocol:node* (:node-id :id "a")))
+                                    (1 :attribute (architecture.builder-protocol:node* (:attribute :name "b" :value "c")))))
+                    (1 :statement (architecture.builder-protocol:node* (:edge :kind :directed)
+                                    (1 :from (architecture.builder-protocol:node* (:node-id :id "a")))
+                                    (1 :to   (architecture.builder-protocol:node* (:node-id :id "c")))))))))
+       (pprint-logical-block (*standard-output* nil)
+         (language.graphviz.unparser:serialize 'list ast *standard-output*)))
+   #+END_SRC
+
+   #+RESULTS:
+   : digraph {
+   :   a [b = "c"];
+   :   a -> c;
+   :
+   : }
+
+
 * TODO Reference
