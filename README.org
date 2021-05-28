@@ -1,0 +1,19 @@
+#+TITLE:       language.graphviz README
+#+AUTHOR:      Jan Moringen
+#+EMAIL:       jmoringe@techfak.uni-bielefeld.de
+#+DESCRIPTION:
+#+KEYWORDS:    parser, graphviz, dot, esrap
+#+LANGUAGE:    en
+
+#+OPTIONS: toc:nil num:nil
+#+SEQ_TODO: TODO STARTED | DONE
+
+* STARTED Introduction
+
+  This library provides functionality for parsing and unparsing the
+  GraphViz dot language into/from abstract syntax trees.
+
+* TODO Tutorial
+
+
+* TODO Reference
