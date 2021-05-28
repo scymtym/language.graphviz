@@ -13,7 +13,33 @@
   This library provides functionality for parsing and unparsing the
   GraphViz dot language into/from abstract syntax trees.
 
-* TODO Tutorial
+* STARTED Tutorial
 
+** STARTED Parsing
+
+   The ~parser~ module of this library provides functionality for
+   parsing the GraphViz dot language. The module is contained in the
+   ~language.graphviz.parser~ package. Example:
+
+   #+BEGIN_SRC lisp :exports both :results value verbatim
+     (language.graphviz.parser:parse 'list "digraph { a[b=c]; a->d; }")
+   #+END_SRC
+
+   #+RESULTS:
+   #+BEGIN_SRC lisp
+   (:GRAPH
+    (:STATEMENT
+     (((:NODE
+        (:ID (((:NODE-ID NIL :ID "a" :BOUNDS (10 . 11)))) :ATTRIBUTE
+         (((:ATTRIBUTE NIL :NAME "b" :VALUE "c" :BOUNDS (12 . 15)))))
+        :BOUNDS (10 . 17)))
+      ((:EDGE
+        (:FROM (((:NODE-ID NIL :ID "a" :BOUNDS (18 . 19)))) :TO
+         (((:NODE-ID NIL :ID "d" :BOUNDS (21 . 22)))))
+        :KIND :DIRECTED))))
+    :ID NIL :KIND (NIL LANGUAGE.GRAPHVIZ.PARSER::DIGRAPH) :BOUNDS (0 . 25))
+   NIL
+   T
+   #+END_SRC
 
 * TODO Reference

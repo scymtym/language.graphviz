@@ -14,9 +14,18 @@
   :maintainer  #1#
 
   :version     (:read-file-form "version-string.sexp")
-  :depends-on  ()
+  :depends-on  ("alexandria"
 
-  :components  ()
+                (:version "architecture.builder-protocol" "0.11")
+                "esrap"
+                "parser.common-rules")
+
+  :components  ((:module     "parser"
+                 :pathname   "code/parser"
+                 :serial     t
+                 :components ((:file       "package")
+                              (:file       "protocol")
+                              (:file       "grammar"))))
 
   :in-order-to ((test-op (test-op "language.graphviz/test"))))
 
@@ -25,10 +34,21 @@
   :license     "GPLv3" ; see COPYING file for details.
 
   :version     (:read-file-form "version-string.sexp")
-  :depends-on  ("fiveam")
+  :depends-on  ("fiveam"
+
+                (:version "language.graphviz" (:read-file-form "language.graphviz"))
+
+                "parser.common-rules/test")
 
   :components  ((:module     "test"
-                 :components ((:file       "package"))))
+                 :components ((:file       "package")))
+
+                (:module     "parser"
+                 :pathname   "test/parser"
+                 :depends-on ("test")
+                 :serial     t
+                 :components ((:file       "package")
+                              (:file       "grammar"))))
 
   :perform     (test-op (operation component)
                  (uiop:symbol-call '#:language.graphviz.test '#:run-tests)))
