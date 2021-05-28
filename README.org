@@ -18,8 +18,9 @@
 ** STARTED Parsing
 
    The ~parser~ module of this library provides functionality for
-   parsing the GraphViz dot language. The module is contained in the
-   ~language.graphviz.parser~ package. Example:
+   parsing the text based GraphViz dot language into abstract syntax
+   trees. The module is contained in the ~language.graphviz.parser~
+   package. Example:
 
    #+BEGIN_SRC lisp :exports both :results value verbatim
      (language.graphviz.parser:parse 'list "digraph { a[b=c]; a->d; }")
@@ -45,7 +46,8 @@
 ** STARTED Unparsing
 
    The ~unparser~ module of this library provides functionality for
-   parsing the GraphViz dot language. The module is contained in the
+   unparsing abstract syntax trees into the text based GraphViz dot
+   language. The module is contained in the
    ~language.graphviz.unparser~ package. Example:
 
    #+BEGIN_SRC lisp :exports both :results output
