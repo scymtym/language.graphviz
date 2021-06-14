@@ -72,5 +72,5 @@
                          (format stream "~A = ~S" name value)))
                       (t
                        (format stream "~A = ~S" name value)))))))))
-    (pprint-logical-block (stream- (list tree))
+    (pprint-logical-block (stream (list tree))
       (bp:walk-nodes builder (a:curry #'process-node stream) tree))))
