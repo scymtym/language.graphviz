@@ -50,7 +50,7 @@
    language. The module is contained in the
    ~language.graphviz.unparser~ package. Example:
 
-   #+BEGIN_SRC lisp :exports both :results output
+   #+BEGIN_SRC lisp :exports both :results output verbatim
      (let ((ast (architecture.builder-protocol:with-builder ('list)
                   (architecture.builder-protocol:node* (:graph :kind '(nil :digraph))
                     (1 :statement (architecture.builder-protocol:node* (:node)
@@ -64,11 +64,12 @@
    #+END_SRC
 
    #+RESULTS:
-   : digraph {
-   :   a [b = "c"];
-   :   a -> c;
-   :
-   : }
+   #+BEGIN_SRC dot
+   digraph {
+     a [b = "c"];
+     a -> c;
 
+   }
+   #+END_SRC
 
 * TODO Reference
